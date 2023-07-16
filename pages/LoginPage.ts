@@ -7,6 +7,8 @@ export class LoginPage {
   readonly txtUsername: Locator;
   readonly txtPassword: Locator;
   readonly btnLogin: Locator;
+  readonly lblInvalidLogin: Locator;
+
 
   
   constructor(page: Page){
@@ -15,6 +17,8 @@ export class LoginPage {
     this.txtUsername = page.getByPlaceholder('Username');
     this.txtPassword = page.getByPlaceholder('Password');;
     this.btnLogin = page.getByRole('button', { name: ' Login' });
+    this.lblInvalidLogin = page.getByText('Invalid credentials');
+
 }
    
 
@@ -25,6 +29,11 @@ export class LoginPage {
       await this.txtPassword.type(password);
       await this.btnLogin.click();
      
+    }
+
+    async isInvalidLoginLblVisible(){
+      await this.lblInvalidLogin.waitFor({state: "visible"});
+      return  this.lblInvalidLogin.isVisible();
     }
 
      async visit(){

@@ -7,7 +7,6 @@ export class DashboardPage {
   readonly lnkLeave: Locator;
   readonly lnkPIM: Locator;
   readonly lblDashboard: Locator;
-  readonly lblInvalidLogin: Locator;
 
   
   constructor(page: Page){
@@ -16,7 +15,6 @@ export class DashboardPage {
     this.lnkLeave = page.getByPlaceholder('Username');
     this.lnkPIM = page.getByPlaceholder('Password');
     this.lblDashboard = page.getByRole('heading', { name: 'Dashboard' });
-    this.lblInvalidLogin = page.getByText('Invalid credentials');
 }
    
 
@@ -35,8 +33,5 @@ export class DashboardPage {
        return this.lblDashboard.isVisible();
     }
 
-    async isInvalidLoginLblVisible(){
-      await this.lblInvalidLogin.waitFor({state: "visible"});
-      return  this.lblInvalidLogin.isVisible();
-    }
+   
 }
