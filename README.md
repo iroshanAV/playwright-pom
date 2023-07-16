@@ -1,0 +1,1 @@
+#This a Simple Playwright Page Object Pattern design framework.
