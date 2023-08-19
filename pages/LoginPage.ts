@@ -31,10 +31,6 @@ export class LoginPage {
      
     }
 
-    async isInvalidLoginLblVisible(){
-       await this.lblInvalidLogin.waitFor({state: "visible"});
-      return  this.lblInvalidLogin.isVisible();
-    }
 
      async visit(){
       await this.page.goto("https://parabank.parasoft.com/parabank/index.htm");     
