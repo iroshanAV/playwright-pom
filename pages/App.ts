@@ -1,6 +1,7 @@
 import { Page } from "@playwright/test";
 import { LoginPage } from "./LoginPage";
 import { DashboardPage } from "./DashboardPage";
+import { LeavePage } from "./LeavePage";
 
 export class App {
     protected page: Page;
@@ -15,5 +16,9 @@ export class App {
 
     public get DashboardPage(): DashboardPage{
         return new DashboardPage(this.page);
+    }
+
+    public get LeavePage(): LeavePage{
+        return new LeavePage(this.page);
     }
 }

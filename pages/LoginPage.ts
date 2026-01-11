@@ -8,16 +8,18 @@ export class LoginPage {
   readonly txtPassword: Locator;
   readonly btnLogin: Locator;
   readonly lblInvalidLogin: Locator;
+  readonly lblWelcome: Locator;
 
 
   
   constructor(page: Page){
     this.page = page;
  
-    this.txtUsername = page.getByPlaceholder('Username');
-    this.txtPassword = page.getByPlaceholder('Password');;
-    this.btnLogin = page.getByRole('button', { name: ' Login' });
+    this.txtUsername = page.locator('input[name="username"]');
+    this.txtPassword = page.locator('input[name="password"]');;
+    this.btnLogin = page.getByRole('button', { name: 'Log In' });
     this.lblInvalidLogin = page.getByText('Invalid credentials');
+    this.lblWelcome = page.locator('//p[@class = "smallText"]/b');
 
 }
    
@@ -37,6 +39,8 @@ export class LoginPage {
     }
 
      async visit(){
-      await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");     
+      await this.page.goto("https://parabank.parasoft.com/parabank/index.htm");     
     }
+
+    //https://parabank.parasoft.com/parabank/index.htm
 }

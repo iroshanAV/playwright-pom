@@ -14,5 +14,4 @@ test("Checking whether wrong username, password does not allow users to log in",
   await app.LoginPage.visit();
   await app.LoginPage.login("Admin","admin12");
   await expect( await app.LoginPage.isInvalidLoginLblVisible()).toBeTruthy();
-
-})
+});
